@@ -1,0 +1,32 @@
+import java.util.Arrays;
+import java.util.Scanner;   
+public class alphaSort{
+public static void main(String[] args)   
+{
+    int n,i; 
+    String temp;  
+ Scanner scanner = new Scanner(System.in);
+    System.out.println("Enter the number of cities");
+    n = scanner.nextInt();
+    String cityname[] = new String[n];
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the city names");
+    for(i = 0;i<n;i++){
+        cityname[i] = sc.nextLine();
+    }
+    for(i = 0;i<n;i++){
+        for(int j = i+1;j<n;j++){
+            if(cityname[i].compareTo(cityname[j]) >0){
+                temp = cityname[i];
+                cityname[i] = cityname[j];
+                cityname[j] = temp;
+            }
+        }
+    }
+    System.out.println("Cities in alphabetical order");
+    for(i =0;i<n;i++){
+        System.out.println(cityname[i]);
+    }
+ 
+}  
+}

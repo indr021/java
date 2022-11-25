@@ -1,0 +1,59 @@
+7.a 12345 22345 33345 44445 55555
+
+import java.util.Scanner;
+
+
+public class Pattern {
+
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter n: ");
+
+        int n = scanner.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+
+            for (int j = 1; j <= n; j++) {
+
+                if (j <= i) {
+
+                    System.out.print(i + " ");
+
+                } else {
+
+                    System.out.print(j + " ");
+
+                }
+
+            }
+
+            System.out.println();
+
+        }
+
+    }
+
+7.b  --> 1 31 531 7531 .
+
+import java.util.Scanner;
+
+public class Pattern {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = scanner.nextInt();
+        for (int i = 1; i <= n; i++) {
+            int currentNum = 2 * i - 1;
+            for (int j = 1; j <= i; j++) {
+                System.out.print(currentNum + " ");
+                currentNum = currentNum - 2;
+            }
+            System.out.println();
+        }
+    }
+
+}

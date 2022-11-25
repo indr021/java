@@ -1,0 +1,50 @@
+ import java.io.*;
+class CommandVolume
+{
+                void claculateVolume(int s)
+                {
+                                int vol=0;
+                                vol=s*s*s;
+                                System.out.println("The Volume of a Cube is : "+vol);
+                }
+                void claculateVolume(double r,double h)
+                {
+                                double pi=3.1428;
+                                double vol=0.0;
+                                vol=pi*r*r*h;
+                                System.out.println("The Volume of a Cylinder is : "+vol);
+                }
+                void claculateVolume(double a)
+                {
+                                double pi=3.1428;
+                                double b=(4.0/3.0);
+                                double c=b*pi;
+                                double vol=0.0;
+                                double d=a*a*a;
+                                vol=c*d;
+                                System.out.println("The Volume of a Sphere is : "+vol);
+                }
+}
+class CommandMain
+{
+                public static void main(String args[])
+                {
+                                CommandVolume v=new CommandVolume();
+                                if(args[0].equalsIgnoreCase("Cube"))
+                                {
+                                                int s=Integer.parseInt(args[1]);;
+                                                v.claculateVolume(s);
+                                }
+                                if(args[0].equalsIgnoreCase("Cylinder"))
+                                {
+                                                double r=Double.valueOf(args[1]).doubleValue();
+                                                double h=Double.valueOf(args[2]).doubleValue();
+                                                v.claculateVolume(r,h);
+                                }
+                                if(args[0].equalsIgnoreCase("Sphere"))
+                                {
+                                                double a=Double.valueOf(args[1]).doubleValue();
+                                                v.claculateVolume(a);
+                                }
+                }
+}

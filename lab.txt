@@ -1,0 +1,289 @@
+1>method overloading:-
+class Adder{  
+static int add(int a,int b){return a+b;}  
+static int add(int a,int b,int c){return a+b+c;}  
+}  
+class TestOverloading1{  
+public static void main(String[] args){  
+System.out.println(Adder.add(11,11));  
+System.out.println(Adder.add(11,11,11));  
+}}  
+
+
+2>method overriding
+/ A Simple Java program to demonstrate
+// method overriding in java
+  
+// Base Class
+class Parent {
+    void show()
+    {
+        System.out.println("Parent's show()");
+    }
+}
+  
+// Inherited class
+class Child extends Parent {
+    // This method overrides show() of Parent
+    @Override
+    void show()
+    {
+        System.out.println("Child's show()");
+    }
+}
+  
+// Driver class
+class Main {
+    public static void main(String[] args)
+    {
+        // If a Parent type reference refers
+        // to a Parent object, then Parent's
+        // show is called
+        Parent obj1 = new Parent();
+        obj1.show();
+  
+        // If a Parent type reference refers
+        // to a Child object Child's show()
+        // is called. This is called RUN TIME
+        // POLYMORPHISM.
+        Parent obj2 = new Child();
+        obj2.show();
+    }
+}
+
+3>single level inheritence
+class Animal{  
+void eat(){System.out.println("eating...");}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println("barking...");}  
+}  
+class TestInheritance{  
+public static void main(String args[]){  
+Dog d=new Dog();  
+d.bark();  
+d.eat();  
+}}  
+
+4>Multilevel inheritence
+class Animal{  
+void eat(){System.out.println("eating...");}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println("barking...");}  
+}  
+class BabyDog extends Dog{  
+void weep(){System.out.println("weeping...");}  
+}  
+class TestInheritance2{  
+public static void main(String args[]){  
+BabyDog d=new BabyDog();  
+d.weep();  
+d.bark();  
+d.eat();  
+}}  
+
+5>Hierarchical Inheritance Example
+
+class Animal{  
+void eat(){System.out.println("eating...");}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println("barking...");}  
+}  
+class Cat extends Animal{  
+void meow(){System.out.println("meowing...");}  
+}  
+class TestInheritance3{  
+public static void main(String args[]){  
+Cat c=new Cat();  
+c.meow();  
+c.eat();  
+//c.bark();//C.T.Error  
+}}  
+
+6>data abstraction
+// Java program to illustrate the
+// concept of Abstraction
+abstract class Shape {
+	String color;
+
+	// these are abstract methods
+	abstract double area();
+	public abstract String toString();
+
+	// abstract class can have the constructor
+	public Shape(String color)
+	{
+		System.out.println("Shape constructor called");
+		this.color = color;
+	}
+
+	// this is a concrete method
+	public String getColor() { return color; }
+}
+class Circle extends Shape {
+	double radius;
+
+	public Circle(String color, double radius)
+	{
+
+		// calling Shape constructor
+		super(color);
+		System.out.println("Circle constructor called");
+		this.radius = radius;
+	}
+
+	@Override double area()
+	{
+		return Math.PI * Math.pow(radius, 2);
+	}
+
+	@Override public String toString()
+	{
+		return "Circle color is " + super.getColor()
+			+ "and area is : " + area();
+	}
+}
+class Rectangle extends Shape {
+
+	double length;
+	double width;
+
+	public Rectangle(String color, double length,
+					double width)
+	{
+		// calling Shape constructor
+		super(color);
+		System.out.println("Rectangle constructor called");
+		this.length = length;
+		this.width = width;
+	}
+
+	@Override double area() { return length * width; }
+
+	@Override public String toString()
+	{
+		return "Rectangle color is " + super.getColor()
+			+ "and area is : " + area();
+	}
+}
+public class Test {
+	public static void main(String[] args)
+	{
+		Shape s1 = new Circle("Red", 2.2);
+		Shape s2 = new Rectangle("Yellow", 2, 4);
+
+		System.out.println(s1.toString());
+		System.out.println(s2.toString());
+	}
+}
+
+7>data encapsulation
+
+//A Java class which is a fully encapsulated class.  
+//It has a private data member and getter and setter methods.  
+package com.javatpoint;  
+public class Student{  
+//private data member  
+private String name;  
+//getter method for name  
+public String getName(){  
+return name;  
+}  
+//setter method for name  
+public void setName(String name){  
+this.name=name  
+}  
+}  
+
+8>Ramanujan number
+mport java.util.Scanner;  
+public class RamanujanNumberExample1  
+{  
+public static void main(String args[])  
+{  
+Scanner sc= new Scanner(System.in);  
+System.out.print("Enter a number you want to check: ");      
+//reading an integer from the user that we want to check  
+int orgNum = sc.nextInt();  
+int sum = findSum(orgNum);  
+int reverseSum = reverseSum(sum);  
+//compares the original number (entered by the user) with the product of sum and its reverse  
+if( (sum * reverseSum) == orgNum)  
+//prints the following statement if the above statement returns true  
+System.out.println(orgNum +" is a Ramanujan Number.");  
+//prints the following statement, if the condition returns false   
+else  
+System.out.println(orgNum+" is not a Ramanujan Number.");  
+}  
+//user-defined function that finds the sum  
+public static int findSum(int number)  
+{  
+//the variable stores the sum of each digit  
+int sum = 0;  
+while (number > 0)  
+{  
+//determines the remainder and add the resultant in the variable sum      
+sum = sum + number % 10;  
+//removes the last digit from the number  
+number = number / 10;  
+}  
+return sum;  
+}  
+//user-defined function that reverse the sum returned by the findSum() function  
+public static int reverseSum(int number)  
+{  
+//the variable stores the reverse of the variable sum      
+int reverse = 0;  
+//executes until the condition becomes false  
+while (number > 0)  
+{  
+//determines the remainder      
+int digit = number % 10;  
+//reverse the sum   
+reverse = reverse * 10 + digit;  
+//removes the last digit from the number  
+number = number / 10;  
+}  
+return reverse;  
+}  
+}  
+
+
+9>prime number
+public class PrimeExample{    
+ public static void main(String args[]){    
+  int i,m=0,flag=0;      
+  int n=3;//it is the number to be checked    
+  m=n/2;      
+  if(n==0||n==1){  
+   System.out.println(n+" is not prime number");      
+  }else{  
+   for(i=2;i<=m;i++){      
+    if(n%i==0){      
+     System.out.println(n+" is not prime number");      
+     flag=1;      
+     break;      
+    }      
+   }      
+   if(flag==0)  { System.out.println(n+" is prime number"); }  
+  }//end of else  
+}    
+}   
+
+10>reverse a number
+public class ReverseNumberExample1   
+{  
+public static void main(String[] args)   
+{  
+int number = 987654, reverse = 0;  
+while(number != 0)   
+{  
+int remainder = number % 10;  
+reverse = reverse * 10 + remainder;  
+number = number/10;  
+}  
+System.out.println("The reverse of the given number is: " + reverse);  
+}  
+}  
